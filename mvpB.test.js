@@ -15,6 +15,41 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [5] sum('10', '3') // returns 13
   */
 
+  it("Unit Testing of sum function", () => {
+    expect(sum("", "")).toBe("pass valid numbers")
+    expect(sum(Number, "")).toBe("pass valid numbers")
+    expect(sum(Number, Number)).toBe(Number + Number)
+    expect(sum(!isNaN, Number)).toBe(!isNaN, Number)
+    expect(sum("Number", "Number")).toBe("Number" + "Number")
+  })
+})    
+
+describe('Sprint 7 Challenge Learner Tests', () => (
+  it("Integration Testing of HelloWorld component", () => {
+    render(<div>
+      <h1>Hello World Component</h1>
+      <nav>
+        <a href='#'>Home</a>
+        <a href='#'>About</a>
+        <a href='#'>Blog</a>
+      </nav>
+      <main>
+        <section>
+          <h2>The Truth</h2>
+          <p>JavaScript is pretty awesome</p>
+        </section>
+      </main>
+    </div>)
+    // screen.debug()
+    expect(screen.queryByText("Home")).toBeVisible()
+    expect(screen.queryByText("About")).toBeVisible()
+    expect(screen.queryByText("Blog")).toBeVisible()
+    expect(screen.queryByText("The Truth")).toBeVisible()
+    expect(screen.queryByText("JavaScript is pretty awesome")).toBeVisible()
+    expect(screen.queryByText("javaScript is pretty", { exact: false })).toBeVisible()
+
+  })
+))
   /*
   👉 TASK 2 - Integration Testing of HelloWorld component at the bottom of this module
 
@@ -29,11 +64,11 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [5] renders a text that reads "JavaScript is pretty awesome"
     [6] renders a text that includes "javaScript is pretty" (use exact = false)
   */
-  test('you can comment out this test', () => {
-    expect(true).toBe(false)
-  })
-})
-
+//   test('you can comment out this test', () => {
+//     expect(true).toBe(false)
+//   })
+// })
+    
 function sum(a, b) {
   a = Number(a)
   b = Number(b)

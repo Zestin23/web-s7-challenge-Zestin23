@@ -28,10 +28,21 @@ const sizes = {
 }
 
 const pizzaSchema = yup.object().shape({
-  fullName: yup.string().typeError(e.fullNameType).trim()
-    .required(e.fullNameRequired).min(3, e.fullNameMin).max(20, e.fullNameMax),
-  size: yup.string().oneOf(['S', 'M', 'L'], e.sizeOptions).required(e.sizeRequired).trim(),
-  toppings: yup.array().typeError(e.toppingsType)
+  fullName: yup
+    .string()
+    .typeError(e.fullNameType)
+    .trim()
+    .required(e.fullNameRequired)
+    .min(3, e.fullNameMin)
+    .max(20, e.fullNameMax),
+  size: yup
+    .string()
+    .oneOf(['S', 'M', 'L'], e.sizeOptions)
+    .required(e.sizeRequired)
+    .trim(),
+  toppings: yup
+    .array()
+    .typeError(e.toppingsType)
     .of(
       yup.number().typeError(e.toppingsType)
         .integer(e.toppingsType)
