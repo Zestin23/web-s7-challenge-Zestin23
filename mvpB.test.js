@@ -16,11 +16,11 @@ describe('Sprint 7 Challenge Learner Tests', () => {
   */
 
   it("Unit Testing of sum function", () => {
-    expect(sum("", "")).toBe("pass valid numbers")
-    expect(sum(Number, "")).toBe("pass valid numbers")
-    expect(sum(Number, Number)).toBe(Number + Number)
-    expect(sum(!isNaN, Number)).toBe(!isNaN, Number)
-    expect(sum("Number", "Number")).toBe("Number" + "Number")
+    expect(() => sum()).toThrow("pass valid numbers")
+    expect(() => sum(2, "seven")).toThrow("pass valid numbers")
+    expect(sum(1, 3)).toBe(4)
+    expect(sum("1", 2)).toBe(3)
+    expect(sum("10", "3")).toBe(13)
   })
 })    
 
